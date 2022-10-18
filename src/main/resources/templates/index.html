@@ -2,22 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>pagina</title>
+
+    <title th:text="${titulo}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+
+
 </head>
 <body>
-<h1 th:text=" ${titulo} "> </h1>
+
+
+<h1 class="color-rojo" th:text=" ${titulo} "></h1>
+<h2 class="color-azul">Aplicando estilos css recursos estáticos </h2>
+<img th:src=" @{/imagenes/ista.png}" >
+
 <table th:if=" ${usuarios.size()>0} ">
-    <table border="3" align="center" bordercolor= #5F9EA0 cellspacing="0">
+    <table border="3" align="center" bordercolor=#5F9EA0 cellspacing="0">
         <thead>
-        <th height="50" width="150"  bgcolor=#E6E6FA>Nombre</th>
-        <th height="50" width="150"  bgcolor=#E6E6FA>Apellido</th>
-        <th height="50" width="150"  bgcolor=#E6E6FA>Email</th>
+        <th height="50" width="150" bgcolor=#E6E6FA>Nombre</th>
+        <th height="50" width="150" bgcolor=#E6E6FA>Apellido</th>
+        <th height="50" width="150" bgcolor=#E6E6FA>Email</th>
         </thead>
         <tbody>
 
         <tr th:each="usuario:${usuarios}">
             <td th:text="${usuario.nombre}"></td>
-            <td  th:text="${usuario.apellido}"></td>
+            <td th:text="${usuario.apellido}"></td>
             <td th:text="${usuario.email}"></td>
         </tr>
         </tbody>
